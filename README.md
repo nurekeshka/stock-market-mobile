@@ -41,9 +41,8 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Project Features:
 
-Step One:
-
-[x] Create Project
-[x] Planing Workflows
-[ ] API Integration
-[ ] Home Screen Page
+### Step One:
+- [x] Create Project
+- [x] Planing Workflows
+- [ ] API Integration
+- [ ] Home Screen Page
