@@ -45,4 +45,10 @@ samples, guidance on mobile development, and a full API reference.
 - [x] Create Project
 - [x] Planing Workflows
 - [ ] API Integration
-- [ ] Home Screen Page
+- [ ] Home Screen Page UI
+- [ ] Stocks Search
+
+### Step Two:
+- [ ] Theme Integration
+- [ ] Auth & Profile
+- [ ] Graphics on Home Page
