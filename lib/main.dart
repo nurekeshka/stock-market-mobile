@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:stock_market_mobile/index.dart';
+import 'package:provider/provider.dart';
+
+import './core/theme/theme_notifier.dart';
+import './application.dart';
 
 void main() {
-  runApp(MaterialApp(home: Scaffold(body: Index())));
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => ThemeNotifier())],
+      child: Application(),
+    ),
+  );
 }
