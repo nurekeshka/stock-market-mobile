@@ -13,7 +13,7 @@ class AuthPage extends StatelessWidget {
 
     return Center(
       child: TextButton(
-        child: Text("Click to navigate!"),
+        child: Text("Continue"),
         onPressed: () => {navigation.navigate(Routes.main)},
       ),
     );

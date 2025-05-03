@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
 
     return Center(
       child: TextButton(
-        child: Text("Click to change!"),
+        child: Text("Return"),
         onPressed: () => {navigation.revert()},
       ),
     );

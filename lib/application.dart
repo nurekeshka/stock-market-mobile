@@ -15,11 +15,11 @@ class Application extends StatelessWidget {
     final navigation = Provider.of<NavigationService>(context);
 
     return MaterialApp(
+      routes: routes,
       theme: Themes.light,
       darkTheme: Themes.dark,
       initialRoute: Routes.auth.path,
       themeMode: themes.themeMode,
-      routes: routes,
       navigatorKey: navigation.navigatorKey,
     );
   }

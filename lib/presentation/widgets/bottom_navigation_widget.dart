@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stock_market_mobile/core/theme/colors.dart';
 
-import '../../core/constants/main_tabs.dart';
-import '../blocs/tabs_bloc.dart';
+import '../../core/constants/tabs.dart';
 import '../blocs/events/tabs_event.dart';
 import '../blocs/states/tabs_state.dart';
+import '../blocs/tabs_bloc.dart';
 
 class BottomNavigationWidget extends StatelessWidget {
   const BottomNavigationWidget({super.key});
@@ -23,6 +24,7 @@ class BottomNavigationWidget extends StatelessWidget {
                 return BottomNavigationBarItem(
                   icon: pair.item1,
                   label: pair.item2,
+                  backgroundColor: DesignColors.blueNights.color,
                 );
               }).toList(),
         );
