@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../blocs/states/tabs_state.dart';
+import '../../blocs/tabs_bloc.dart';
 import '../../widgets/bottom_navigation_widget.dart';
-import '../../blocs/tabs/tabs_bloc.dart';
-import '../../blocs/tabs/tabs_state.dart';
 import './tabs/home_page.dart';
 
 class MainPage extends StatelessWidget {

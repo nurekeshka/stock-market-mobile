@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../core/constants/tabs_constants.dart';
-import '../blocs/tabs/tabs_bloc.dart';
-import '../blocs/tabs/tabs_event.dart';
-import '../blocs/tabs/tabs_state.dart';
+import '../../core/constants/main_tabs.dart';
+import '../blocs/tabs_bloc.dart';
+import '../blocs/events/tabs_event.dart';
+import '../blocs/states/tabs_state.dart';
 
 class BottomNavigationWidget extends StatelessWidget {
   const BottomNavigationWidget({super.key});
@@ -16,10 +16,10 @@ class BottomNavigationWidget extends StatelessWidget {
         return BottomNavigationBar(
           currentIndex: state.currentIndex,
           onTap: (index) {
-            context.read<TabBloc>().add(TabChanged(index));
+            context.read<TabBloc>().add(TabChange(index));
           },
           items:
-              tabsMap.values.map((pair) {
+              tabs.values.map((pair) {
                 return BottomNavigationBarItem(
                   icon: pair.item1,
                   label: pair.item2,
