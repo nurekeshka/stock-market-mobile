@@ -17,7 +17,7 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Architecture Overview
 
-![Mobile App's Architecture](./docs/diagrams.drawio.png)
+![App's Architecture](./docs/systems.png)
 
 ```bash
 libs/
