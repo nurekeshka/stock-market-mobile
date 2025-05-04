@@ -18,26 +18,30 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Architecture Overview
 
-- **lib**: Source Code
-  - **core**: Application Logic
-    - **constants**: Static Values
-    - **services**: Business Logic
-    - **theme**: Styles & Colors
-    - **utils**: Helpers & Utilities
-  - **data**: Data Management
-    - **datasources**: Data Retriving
-    - **models**: Data Models
-    - **repositories**: Data Interactors
-  - **domain**: Models & Entities
-    - **entities**: Entities
-    - **repositories**: Entities Repositories
-    - **usecases**: Entities Interactors
-  - **presentation**: UI & Widgets
-    - **blocs**: Events & State Management
-    - **pages**: Routes
-    - **widgets**: Components & UI
-  - index.dart: Core Widget
-  - main.dart: Application Entry Point
+```bash
+libs/
+  core/
+    constants/              # Route names, providers, enums
+    services/               # App-wide helpers (navigation, theming)
+    theme/                  # Colors, theme definitions
+    utils/                  # Generic helpers
+  data/
+    datasources/            # Interfaces to external systems (Hive, API)
+    repositories/           # Implement domain repositories using datasources
+    models/                 # DTOs for data layer only
+  domain/
+    entities/               # Business objects
+    repositories/           # Abstract contracts
+    usecases/               # Business logic/application logic
+  presentation/
+    blocs/                  # State management (BLoC)
+      events/               # State Changing Events
+      states/               # Applcation States
+    pages/                  # UI pages
+    widgets/                # Reusable UI components
+  application.dart          # Core Widget
+  main.dart                 # Application Entry Point
+```
 
 ## Project Features:
 
