@@ -12,11 +12,6 @@ class ApiConnector {
       }
     });
   }
-
-  somemeaningfulfunction() async {
-    final user = get<User>(api.resolve("/api/test"));
-    return user;
-  }
 }
 
 class User {
