@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stock_market_mobile/presentation/pages/main/tabs/browse_page.dart';
 
 import '../../blocs/states/tabs_state.dart';
 import '../../blocs/tabs_bloc.dart';
@@ -9,7 +10,7 @@ import './tabs/home_page.dart';
 class MainPage extends StatelessWidget {
   final List<Widget> pages = const [
     HomePage(),
-    Center(child: Text('Browse')),
+    BrowsePage(),
     Center(child: Text('Charts')),
     Center(child: Text('Events')),
   ];
