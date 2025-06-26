@@ -18,8 +18,8 @@ class Application extends StatelessWidget {
       routes: routes,
       theme: Themes.light,
       darkTheme: Themes.dark,
-      initialRoute: Routes.auth.path,
       themeMode: themes.themeMode,
+      initialRoute: Routes.auth.path,
       navigatorKey: navigation.navigatorKey,
     );
   }

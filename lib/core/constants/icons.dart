@@ -1,5 +1,5 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:stock_market_mobile/core/theme/colors.dart';
 
 const Map<AppIconsEnum, String> icons = {
   AppIconsEnum.announcements: 'announcements',
@@ -19,18 +19,19 @@ const Map<AppIconsEnum, String> icons = {
 class AppIcons {
   static String iconsPath = 'assets/icons';
 
-  static SvgPicture getIcon(
-    AppIconsEnum icon,
-    double size,
-    DesignColors color,
-  ) {
-    return SvgPicture.asset(
-      getIconPath(icon),
-      semanticsLabel: icons[icon],
-      width: size,
+  static Widget getIcon(AppIconsEnum icon, Color color, double size) {
+    return Container(
       height: size,
-      // ignore: deprecated_member_use
-      color: color.color,
+      width: size,
+      alignment: Alignment.center,
+      child: SvgPicture.asset(
+        getIconPath(icon),
+        semanticsLabel: icons[icon],
+        width: size,
+        height: size,
+        // ignore: deprecated_member_use
+        color: color,
+      ),
     );
   }
 

@@ -4,26 +4,37 @@ import 'package:stock_market_mobile/core/theme/colors.dart';
 class Themes {
   static final light = ThemeData(
     brightness: Brightness.light,
-    primarySwatch: Colors.blue,
-    scaffoldBackgroundColor: Colors.white,
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.blue,
-      foregroundColor: Colors.white,
+    primaryColor: DesignColors.electromagnetic.color,
+    scaffoldBackgroundColor: Color(0xFFF4F5F7),
+    appBarTheme: AppBarTheme(
+      backgroundColor: DesignColors.lynxWhite.color,
+      foregroundColor: DesignColors.electromagnetic.color,
     ),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: Colors.white,
-      selectedItemColor: Colors.blue,
-      unselectedItemColor: Colors.grey,
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: DesignColors.lynxWhite.color,
+      selectedIconTheme: IconThemeData(
+        color: DesignColors.electromagnetic.color,
+      ),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      border: UnderlineInputBorder(),
+      hintStyle: TextStyle(color: Colors.grey[700]),
+    ),
+    textTheme: TextTheme(bodyMedium: TextStyle(color: Colors.black)),
   );
 
   static final dark = ThemeData(
     brightness: Brightness.dark,
-    primarySwatch: Colors.blue,
+    primaryColor: Colors.white,
     scaffoldBackgroundColor: DesignColors.electromagnetic.color,
     appBarTheme: AppBarTheme(
       backgroundColor: DesignColors.electromagnetic.color,
       foregroundColor: DesignColors.lynxWhite.color,
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: DesignColors.electromagnetic.color,
+      selectedItemColor: DesignColors.lynxWhite.color,
+      unselectedItemColor: DesignColors.lynxWhite.color,
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
@@ -57,10 +68,10 @@ class Themes {
         ),
       ),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: DesignColors.blueNights.color,
-      selectedItemColor: DesignColors.lynxWhite.color,
-      unselectedItemColor: DesignColors.hintOfPensive.color,
+    inputDecorationTheme: InputDecorationTheme(
+      border: UnderlineInputBorder(),
+      hintStyle: TextStyle(color: Colors.grey[400]),
     ),
+    textTheme: TextTheme(bodyMedium: TextStyle(color: Colors.white)),
   );
 }

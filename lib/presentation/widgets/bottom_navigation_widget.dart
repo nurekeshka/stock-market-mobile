@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:stock_market_mobile/core/theme/colors.dart';
 
+import '../../core/constants/icons.dart';
 import '../../core/constants/tabs.dart';
 import '../blocs/events/tabs_event.dart';
 import '../blocs/states/tabs_state.dart';
@@ -12,6 +12,9 @@ class BottomNavigationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textColor =
+        Theme.of(context).bottomNavigationBarTheme.selectedItemColor!;
+
     return BlocBuilder<TabBloc, TabState>(
       builder: (context, state) {
         return BottomNavigationBar(
@@ -22,9 +25,12 @@ class BottomNavigationWidget extends StatelessWidget {
           items:
               tabs.values.map((pair) {
                 return BottomNavigationBarItem(
-                  icon: pair.item1,
+                  icon: AppIcons.getIcon(pair.item1, textColor, 30),
                   label: pair.item2,
-                  backgroundColor: DesignColors.blueNights.color,
+                  backgroundColor:
+                      Theme.of(
+                        context,
+                      ).bottomNavigationBarTheme.backgroundColor,
                 );
               }).toList(),
         );
