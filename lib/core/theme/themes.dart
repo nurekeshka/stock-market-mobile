@@ -70,7 +70,7 @@ class Themes {
     ),
     inputDecorationTheme: InputDecorationTheme(
       border: UnderlineInputBorder(),
-      hintStyle: TextStyle(color: Colors.grey[400]),
+      hintStyle: TextStyle(color: DesignColors.electromagnetic.color),
     ),
     textTheme: TextTheme(bodyMedium: TextStyle(color: Colors.white)),
   );

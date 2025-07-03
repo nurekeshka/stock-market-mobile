@@ -4,8 +4,8 @@ import '../../presentation/pages/auth/auth_page.dart';
 import '../../presentation/pages/main/main_page.dart';
 
 final Map<String, WidgetBuilder> routes = {
-  Routes.main.path: (context) => const MainPage(),
-  Routes.auth.path: (context) => const AuthPage(),
+  Routes.main.path: (context) => MainPage(),
+  Routes.auth.path: (context) => AuthPage(),
 };
 
 enum Routes { main, auth }

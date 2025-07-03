@@ -8,14 +8,14 @@ import '../../../../core/theme/colors.dart';
 import '../../../../domain/entities/stock_entity.dart';
 import '../../../widgets/stock_item_widget.dart';
 
-class BrowsePage extends StatefulWidget {
-  const BrowsePage({super.key});
+class BrowseTab extends StatefulWidget {
+  const BrowseTab({super.key});
 
   @override
-  BrowsePageState createState() => BrowsePageState();
+  BrowseTabState createState() => BrowseTabState();
 }
 
-class BrowsePageState extends State<BrowsePage> {
+class BrowseTabState extends State<BrowseTab> {
   List<dynamic> stocks = [];
   bool loading = false;
 
