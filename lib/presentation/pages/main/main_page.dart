@@ -5,14 +5,16 @@ import '../../blocs/states/tabs_state.dart';
 import '../../blocs/tabs_bloc.dart';
 import '../../widgets/bottom_navigation_widget.dart';
 import './tabs/browse_page.dart';
+import './tabs/charts_page.dart';
+import './tabs/events_page.dart';
 import './tabs/home_page.dart';
 
 class MainPage extends StatelessWidget {
   final List<Widget> pages = [
     HomeTab(),
     BrowseTab(),
-    Center(child: Text('Charts')),
-    Center(child: Text('Events')),
+    ChartsPage(),
+    EventsPage(),
   ];
 
   MainPage({super.key});
