@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:stock_market_mobile/core/constants/routes.dart';
+import 'package:stock_market_mobile/core/services/navigation_service.dart';
+import 'package:stock_market_mobile/core/services/storage_service.dart';
 
-import '../../../core/services/theme_service.dart';
 import '../../blocs/states/tabs_state.dart';
 import '../../blocs/tabs_bloc.dart';
 import './tabs/sign_in_page.dart';
@@ -15,17 +17,34 @@ class AuthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Provider.of<ThemeService>(context);
+    final navigation = Provider.of<NavigationService>(context);
+    final storage = Provider.of<StorageService>(context);
 
-    theme.toggle();
+    return FutureBuilder(
+      future: storage.get(HiveKeysEnum.accessToken),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
 
-    return BlocProvider(
-      create: (_) => TabBloc(),
-      child: BlocBuilder<TabBloc, TabState>(
-        builder: (context, state) {
-          return pages[state.currentIndex];
-        },
-      ),
+        final access = snapshot.data;
+
+        if (access != null) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            navigation.navigate(Routes.main);
+          });
+          return const SizedBox.shrink();
+        }
+
+        return BlocProvider(
+          create: (_) => TabBloc(),
+          child: BlocBuilder<TabBloc, TabState>(
+            builder: (context, state) {
+              return pages[state.currentIndex];
+            },
+          ),
+        );
+      },
     );
   }
 }

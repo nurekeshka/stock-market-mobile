@@ -78,7 +78,9 @@ class HomeTab extends StatelessWidget {
 
   double total = 0;
 
-  HomeTab({super.key}) {
+  final VoidCallback onProfileTap;
+
+  HomeTab({super.key, required this.onProfileTap}) {
     total = _getTotal();
   }
 
@@ -161,9 +163,10 @@ class HomeTab extends StatelessWidget {
   Widget _buildHeader(BuildContext context) {
     return Row(
       children: [
-        const CircleAvatar(
-          backgroundImage: NetworkImage(
-            'https://www.marketbeat.com/logos/ishares-gold-strategy-etf-logo.png?v=20220819113202',
+        GestureDetector(
+          onTap: onProfileTap,
+          child: CircleAvatar(
+            backgroundImage: AssetImage('assets/images/angela.png'),
           ),
         ),
         const SizedBox(width: 12),

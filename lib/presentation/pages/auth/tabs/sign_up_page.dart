@@ -158,7 +158,7 @@ class SignUpPage extends StatelessWidget {
                         if (response.statusCode == 201) {
                           final body = json.decode(response.body);
                           await storage.set(
-                            KeysEnum.accessToken,
+                            HiveKeysEnum.accessToken,
                             body['access_token'],
                           );
 
