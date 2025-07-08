@@ -112,6 +112,14 @@ class SignUpPage extends StatelessWidget {
                         ),
                         hintText: 'Qwerty123!',
                       ),
+                      onChanged:
+                          (value) => {
+                            if (!_validatePassword(value))
+                              {
+                                passwordError.value =
+                                    'Must contain 8 chars, uppercase, lowercase, digit, special',
+                              },
+                          },
                     ),
                     ValueListenableBuilder<String?>(
                       valueListenable: passwordError,
@@ -133,7 +141,6 @@ class SignUpPage extends StatelessWidget {
                     SizedBox(height: 24),
                     ElevatedButton(
                       onPressed: () async {
-                        isLoading.value = true;
                         final email = emailController.text;
                         final password = passwordController.text;
 
@@ -148,6 +155,8 @@ class SignUpPage extends StatelessWidget {
                               'Must contain 8 chars, uppercase, lowercase, digit, special';
                           return;
                         }
+
+                        isLoading.value = true;
 
                         Response response =
                             await ApiConnector.post<JwtResponseDto>(

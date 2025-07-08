@@ -5,27 +5,58 @@ class Themes {
   static final light = ThemeData(
     brightness: Brightness.light,
     primaryColor: DesignColors.electromagnetic.color,
-    scaffoldBackgroundColor: Color(0xFFF4F5F7),
+    scaffoldBackgroundColor: DesignColors.lynxWhite.color,
     appBarTheme: AppBarTheme(
       backgroundColor: DesignColors.lynxWhite.color,
       foregroundColor: DesignColors.electromagnetic.color,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: DesignColors.lynxWhite.color,
-      selectedIconTheme: IconThemeData(
-        color: DesignColors.electromagnetic.color,
+      selectedItemColor: DesignColors.electromagnetic.color,
+      unselectedItemColor: DesignColors.electromagnetic.color,
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: WidgetStateColor.fromMap({
+          WidgetState.any: DesignColors.blueNights.color,
+        }),
+        backgroundColor: WidgetStateColor.fromMap({
+          WidgetState.any: DesignColors.lynxWhite.color,
+        }),
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
+        ),
+        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
+          const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
+        ),
+      ),
+    ),
+    iconButtonTheme: IconButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStateColor.fromMap({
+          WidgetState.any: DesignColors.blueNights.color,
+        }),
+        foregroundColor: WidgetStateColor.fromMap({
+          WidgetState.any: DesignColors.lynxWhite.color,
+        }),
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
+        ),
+        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
+          const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
+        ),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
       border: UnderlineInputBorder(),
-      hintStyle: TextStyle(color: Colors.grey[700]),
+      hintStyle: TextStyle(color: DesignColors.electromagnetic.color),
     ),
-    textTheme: TextTheme(bodyMedium: TextStyle(color: Colors.black)),
+    textTheme: TextTheme(bodyMedium: TextStyle(color: Colors.white)),
   );
 
   static final dark = ThemeData(
     brightness: Brightness.dark,
-    primaryColor: Colors.white,
+    primaryColor: DesignColors.lynxWhite.color,
     scaffoldBackgroundColor: DesignColors.electromagnetic.color,
     appBarTheme: AppBarTheme(
       backgroundColor: DesignColors.electromagnetic.color,

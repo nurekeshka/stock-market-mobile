@@ -87,6 +87,10 @@ class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final textColor =
+        isDarkMode
+            ? DesignColors.lynxWhite.color
+            : DesignColors.electromagnetic.color;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -104,7 +108,11 @@ class HomeTab extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/home-bg.png'),
+                  image: AssetImage(
+                    isDarkMode
+                        ? 'assets/images/home-bg.png'
+                        : 'assets/images/home-bg-light.png',
+                  ),
                   fit: BoxFit.fitWidth,
                   colorFilter: ColorFilter.mode(
                     Colors.transparent,
@@ -114,22 +122,22 @@ class HomeTab extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  _buildFinancesValue(),
+                  _buildFinancesValue(textColor),
                   const SizedBox(height: 24),
-                  SizedBox(height: 200, child: _buildLineChart(isDarkMode)),
+                  SizedBox(height: 200, child: _buildLineChart(textColor)),
                 ],
               ),
             ),
 
             const SizedBox(height: 24),
-            _buildOverviewSection(),
+            _buildOverviewSection(isDarkMode),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildFinancesValue() {
+  Widget _buildFinancesValue(Color textColor) {
     return Center(
       child: Column(
         children: [
@@ -144,14 +152,17 @@ class HomeTab extends StatelessWidget {
             style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
-              color: DesignColors.lynxWhite.color,
+              color: textColor,
             ),
           ),
           const SizedBox(height: 4),
           Text(
             '${_getTotalChangeString()}    ${_getPercentageString()}',
             style: TextStyle(
-              color: _getTotalChange() > 0 ? Colors.green : Colors.red,
+              color:
+                  _getTotalChange() > 0
+                      ? DesignColors.skirretGreen.color
+                      : DesignColors.nasturcianFlower.color,
               fontSize: 14,
             ),
           ),
@@ -199,7 +210,7 @@ class HomeTab extends StatelessWidget {
     );
   }
 
-  Widget _buildLineChart(bool isDarkMode) {
+  Widget _buildLineChart(Color textColor) {
     final List<FlSpot> points = [];
 
     for (var i = 0; i < 50; i++) {
@@ -216,7 +227,7 @@ class HomeTab extends StatelessWidget {
           LineChartBarData(
             spots: points,
             isCurved: true,
-            color: Colors.white,
+            color: textColor,
             barWidth: 2,
             dotData: FlDotData(show: false),
             belowBarData: BarAreaData(show: false),
@@ -226,7 +237,7 @@ class HomeTab extends StatelessWidget {
     );
   }
 
-  Widget _buildOverviewSection() {
+  Widget _buildOverviewSection(bool isDarkMode) {
     return Container(
       padding: const EdgeInsets.all(16),
       margin: const EdgeInsets.symmetric(vertical: 12),
@@ -243,13 +254,13 @@ class HomeTab extends StatelessWidget {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 12),
-          ...stocks.map((stock) => _buildStockItem(stock)),
+          ...stocks.map((stock) => _buildStockItem(stock, isDarkMode)),
         ],
       ),
     );
   }
 
-  Widget _buildStockItem(StockEntity stock) {
+  Widget _buildStockItem(StockEntity stock, bool isDarkMode) {
     final isPositive = stock.percentage > 0;
 
     return Card(
@@ -263,24 +274,35 @@ class HomeTab extends StatelessWidget {
         ),
         title: Text(
           stock.name,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+            color: DesignColors.lynxWhite.color,
+          ),
         ),
         horizontalTitleGap: 12,
         subtitle: Text(
           '${stock.shares} ${stock.ticker} • ${stock.currency}${stock.price}',
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(fontSize: 12, color: DesignColors.lynxWhite.color),
         ),
         trailing: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Text(
               '${stock.currency}${_formatNumber(stock.value())}',
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                color: DesignColors.lynxWhite.color,
+              ),
             ),
             Text(
               '${isPositive ? '+' : ''}${stock.percentage.toStringAsFixed(2)}%',
               style: TextStyle(
-                color: isPositive ? Colors.green : Colors.red,
+                color:
+                    isPositive
+                        ? DesignColors.skirretGreen.color
+                        : DesignColors.nasturcianFlower.color,
                 fontSize: 12,
               ),
             ),

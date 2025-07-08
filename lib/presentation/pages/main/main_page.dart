@@ -36,7 +36,7 @@ class MainPageState extends State<MainPage> {
             child: Container(color: Colors.black.withValues(alpha: 0.4)),
           ),
           // Profile screen over blurred background
-          ProfileScreen(onClose: _toggleProfile),
+          ProfilePage(onClose: _toggleProfile),
         ],
       ],
     );

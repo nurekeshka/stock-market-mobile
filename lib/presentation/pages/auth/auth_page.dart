@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:stock_market_mobile/core/constants/routes.dart';
 import 'package:stock_market_mobile/core/services/navigation_service.dart';
 import 'package:stock_market_mobile/core/services/storage_service.dart';
 
+import '../../../core/constants/routes.dart';
 import '../../blocs/states/tabs_state.dart';
 import '../../blocs/tabs_bloc.dart';
 import './tabs/sign_in_page.dart';

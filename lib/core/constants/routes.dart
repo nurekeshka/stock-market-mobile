@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../presentation/pages/auth/auth_page.dart';
 import '../../presentation/pages/main/main_page.dart';
-import '../../presentation/pages/main/premium/premium_page.dart';
+import '../../presentation/pages/premium/premium_page.dart';
 
 final Map<String, WidgetBuilder> routes = {
   Routes.main.path: (context) => MainPage(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stock_market_mobile/core/theme/colors.dart';
 
 import '../../core/constants/icons.dart';
 import '../../core/constants/tabs.dart';
@@ -13,7 +14,8 @@ class BottomNavigationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textColor =
-        Theme.of(context).bottomNavigationBarTheme.selectedItemColor!;
+        Theme.of(context).bottomNavigationBarTheme.selectedItemColor ??
+        DesignColors.electromagnetic.color;
 
     return BlocBuilder<TabBloc, TabState>(
       builder: (context, state) {

@@ -135,7 +135,6 @@ class SignInPage extends StatelessWidget {
                     SizedBox(height: 24),
                     ElevatedButton(
                       onPressed: () async {
-                        isLoading.value = true;
                         final email = emailController.text;
                         final password = passwordController.text;
 
@@ -150,6 +149,8 @@ class SignInPage extends StatelessWidget {
                               'Password must be at least 6 characters';
                           return;
                         }
+
+                        isLoading.value = true;
 
                         Response response =
                             await ApiConnector.post<JwtResponseDto>(
