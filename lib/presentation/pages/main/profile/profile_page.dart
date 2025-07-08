@@ -17,6 +17,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeService>(context);
+    final navigate = Provider.of<NavigationService>(context);
 
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
@@ -129,9 +130,11 @@ class ProfilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   _actionButton(
-                    "Delete account",
+                    "Upgrade Premium",
                     textColor: textColor,
-                    onPressed: () {},
+                    onPressed: () {
+                      navigate.navigate(Routes.premium);
+                    },
                   ),
                   _actionButton(
                     "Sign Out",
