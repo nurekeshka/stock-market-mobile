@@ -205,6 +205,7 @@ class HomeTab extends StatelessWidget {
         ),
         const SizedBox(width: 12),
         IconButton(icon: const Icon(Icons.calendar_today), onPressed: () {}),
+        const SizedBox(width: 8),
         IconButton(icon: const Icon(Icons.bar_chart), onPressed: () {}),
       ],
     );

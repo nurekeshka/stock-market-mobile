@@ -257,6 +257,10 @@ class ProfilePage extends StatelessWidget {
       iconColor: DesignColors.lynxWhite.color,
       title: Text(label),
       trailing: Switch(
+        activeColor: DesignColors.electromagnetic.color,
+        activeTrackColor: DesignColors.lynxWhite.color,
+        inactiveThumbColor: DesignColors.electromagnetic.color,
+        inactiveTrackColor: DesignColors.lynxWhite.color,
         value: value,
         onChanged:
             (value) => theme.set(value ? ThemeMode.dark : ThemeMode.light),
