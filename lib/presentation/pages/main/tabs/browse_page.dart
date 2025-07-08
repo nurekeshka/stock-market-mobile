@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:stock_market_mobile/data/datasources/api_connector.dart';
 import 'package:stock_market_mobile/presentation/widgets/stock_list_widget.dart';
 
 import '../../../../core/theme/colors.dart';
@@ -21,6 +21,16 @@ class BrowseTabState extends State<BrowseTab> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final textColor =
+        isDarkMode
+            ? DesignColors.lynxWhite.color
+            : DesignColors.electromagnetic.color;
+    final bgColor =
+        isDarkMode
+            ? DesignColors.electromagnetic.color
+            : DesignColors.lynxWhite.color;
+
     return Padding(
       padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
       child: Column(
@@ -28,22 +38,19 @@ class BrowseTabState extends State<BrowseTab> {
           TextField(
             decoration: InputDecoration(
               labelText: 'Your next investment step?',
-              labelStyle: TextStyle(
-                color: DesignColors.lynxWhite.color,
-                backgroundColor: DesignColors.electromagnetic.color,
-              ),
-              prefixIcon: Icon(Icons.search),
+              labelStyle: TextStyle(color: textColor, backgroundColor: bgColor),
+              prefixIcon: Icon(Icons.search, color: textColor),
             ),
             onSubmitted: (value) async {
               final url = Uri.parse(
-                "http://localhost:8080/finnhub/symbols?query=${value.toLowerCase()}",
+                "finnhub/symbols?query=${value.toLowerCase()}",
               );
 
               setState(() {
                 loading = true;
               });
 
-              final res = await http.get(url);
+              final res = await ApiConnector.get(url);
 
               if (res.statusCode == 200) {
                 final body = jsonDecode(res.body);

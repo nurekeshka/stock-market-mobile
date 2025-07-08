@@ -103,7 +103,7 @@ class HomeTab extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildHeader(context),
+            _buildHeader(context, isDarkMode),
             const SizedBox(height: 24),
             Container(
               decoration: BoxDecoration(
@@ -171,7 +171,10 @@ class HomeTab extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(BuildContext context) {
+  Widget _buildHeader(BuildContext context, bool isDarkMode) {
+    final textColor = DesignColors.lynxWhite.color;
+    final bgColor = DesignColors.blueNights.color;
+
     return Row(
       children: [
         GestureDetector(
@@ -185,13 +188,10 @@ class HomeTab extends StatelessWidget {
           child: TextField(
             decoration: InputDecoration(
               hintText: 'Search',
+              hintStyle: TextStyle(color: textColor),
               filled: true,
-              fillColor: DesignColors.lynxWhite.color,
-              prefixIcon: AppIcons.getIcon(
-                AppIconsEnum.lense,
-                DesignColors.electromagnetic.color,
-                16,
-              ),
+              fillColor: bgColor,
+              prefixIcon: AppIcons.getIcon(AppIconsEnum.lense, textColor, 16),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide.none,

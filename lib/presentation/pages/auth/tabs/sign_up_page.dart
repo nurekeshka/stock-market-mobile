@@ -9,7 +9,6 @@ import '../../../../core/constants/routes.dart';
 import '../../../../core/services/navigation_service.dart';
 import '../../../../core/services/storage_service.dart';
 import '../../../../data/datasources/api_connector.dart';
-import '../../../../domain/dtos/jwt_response_dto.dart';
 import '../../../../domain/dtos/sign_in_dto.dart';
 import '../../../blocs/events/tabs_event.dart';
 import '../../../blocs/tabs_bloc.dart';
@@ -158,11 +157,10 @@ class SignUpPage extends StatelessWidget {
 
                         isLoading.value = true;
 
-                        Response response =
-                            await ApiConnector.post<JwtResponseDto>(
-                              Uri.parse('/api/auth/sign-up'),
-                              SignInDto(email, password).toObject(),
-                            );
+                        Response response = await ApiConnector.post(
+                          Uri.parse('/api/auth/sign-up'),
+                          SignInDto(email, password).toObject(),
+                        );
 
                         if (response.statusCode == 201) {
                           final body = json.decode(response.body);
