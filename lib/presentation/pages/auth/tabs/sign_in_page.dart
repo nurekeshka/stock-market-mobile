@@ -104,6 +104,14 @@ class SignInPage extends StatelessWidget {
                     TextField(
                       controller: passwordController,
                       obscureText: true,
+                      onChanged: (value) {
+                        if (!_validatePassword(value)) {
+                          passwordError.value =
+                              'Your password should be more than 8 letters';
+                        } else {
+                          passwordError.value = null;
+                        }
+                      },
                       decoration: InputDecoration(
                         labelText: 'Your strong password',
                         prefixIcon: AppIcons.getIcon(
@@ -251,6 +259,6 @@ class SignInPage extends StatelessWidget {
   }
 
   bool _validatePassword(String value) {
-    return value.length >= 6;
+    return value.length >= 8;
   }
 }

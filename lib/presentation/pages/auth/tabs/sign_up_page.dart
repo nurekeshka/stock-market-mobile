@@ -116,8 +116,10 @@ class SignUpPage extends StatelessWidget {
                             if (!_validatePassword(value))
                               {
                                 passwordError.value =
-                                    'Must contain 8 chars, uppercase, lowercase, digit, special',
-                              },
+                                    'Must contain 8 letters, uppercase, lowercase, digit, special',
+                              }
+                            else
+                              {passwordError.value = ''},
                           },
                     ),
                     ValueListenableBuilder<String?>(

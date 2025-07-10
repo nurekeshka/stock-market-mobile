@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 
 class ApiConnector {
   // static Uri api = Uri.parse('https://stock-market-api-zw2g.onrender.com/');
-  static Uri api = Uri.parse('http://localhost:8080/');
+  static Uri api = Uri.parse('https://stock-market-api-zw2g.onrender.com');
 
   static Future<http.Response> get(Uri route) {
     return http.get(api.resolveUri(route));
