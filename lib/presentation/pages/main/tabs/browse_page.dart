@@ -26,6 +26,7 @@ class BrowseTabState extends State<BrowseTab> {
         isDarkMode
             ? DesignColors.lynxWhite.color
             : DesignColors.electromagnetic.color;
+
     final bgColor =
         isDarkMode
             ? DesignColors.electromagnetic.color
@@ -60,9 +61,7 @@ class BrowseTabState extends State<BrowseTab> {
                 });
               }
             },
-            style: TextStyle(
-              backgroundColor: DesignColors.electromagnetic.color,
-            ),
+            style: TextStyle(backgroundColor: bgColor),
           ),
           loading
               ? Expanded(child: Center(child: CircularProgressIndicator()))

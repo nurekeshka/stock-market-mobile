@@ -22,10 +22,22 @@ class StockItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final textColor =
+        isDarkMode
+            ? DesignColors.lynxWhite.color
+            : DesignColors.electromagnetic.color;
+
+    final bgColor =
+        isDarkMode
+            ? DesignColors.electromagnetic.color
+            : DesignColors.lynxWhite.color;
+
     final double size = 60;
     final TextStyle boldStyle = TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.bold,
+      color: textColor,
     );
 
     return GestureDetector(
@@ -50,6 +62,7 @@ class StockItemWidget extends StatelessWidget {
                     data.stock.shares == 0
                         ? "${data.stock.ticker} • ${data.stock.currency}${data.stock.price}"
                         : "${data.stock.shares.toString()} ${data.stock.ticker} • ${data.stock.currency}${data.stock.price}",
+                    style: TextStyle(color: textColor),
                   ),
                 ],
               ),
