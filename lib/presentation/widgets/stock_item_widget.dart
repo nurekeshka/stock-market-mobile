@@ -28,11 +28,6 @@ class StockItemWidget extends StatelessWidget {
             ? DesignColors.lynxWhite.color
             : DesignColors.electromagnetic.color;
 
-    final bgColor =
-        isDarkMode
-            ? DesignColors.electromagnetic.color
-            : DesignColors.lynxWhite.color;
-
     final double size = 60;
     final TextStyle boldStyle = TextStyle(
       fontSize: 16,
